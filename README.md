@@ -112,7 +112,7 @@ Here you can define any custom TypeScript types you need.
 
 #### index.css
 
-Not required. In this example this sets up Tailwind CSS.
+Not required. In this example this sets up Tailwind CSS. 
 
 ### vite.config.js
 
