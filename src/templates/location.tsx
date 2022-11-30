@@ -153,12 +153,12 @@ const Location: Template<TemplateRenderProps> = ({
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
-              <div className="bg-gray-100 p-2">
+              <div className="bg-sky-100 rounded-xl p-2">
                 <Details address={address} phone={mainPhone}></Details>
                 {services && <List list={services}></List>}
               </div>
-              <div className="bg-gray-100 p-2">
-                {hours && <Hours title={"Restaurant Hours"} hours={hours} />}
+              <div className="bg-sky-100 rounded-xl p-2">
+                {hours && <Hours title={"Dentist's Hours"} hours={hours} />}
               </div>
               {geocodedCoordinate && (
                 <StaticMap
@@ -166,7 +166,7 @@ const Location: Template<TemplateRenderProps> = ({
                   longitude={geocodedCoordinate.longitude}
                 ></StaticMap>
               )}
-              <div className="bg-gray-100 p-2">
+              <div className="bg-sky-100 rounded-xl p-2">
                 <div className="text-xl font-semibold">{`About ${name}`}</div>
                 <p className="pt-4">{description}</p>
               </div>

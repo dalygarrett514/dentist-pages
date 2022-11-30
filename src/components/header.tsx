@@ -27,27 +27,22 @@ const Header = () => {
   ));
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-white">
       <div className="centered-container">
         <nav className="py-6 flex items-center justify-between">
-          <div className="flex gap-x-4 items-center">
+          <div className="flex gap-x-10 items-center">
             <img
-              src="https://cdn.fs.brandfolder.com/cache=expiry:604800/deY3VGFpSjC761Abjbfc"
-              width="50"
-              height="50"
+              src="https://cdn10.phillymag.com/wp-content/uploads/sites/3/2018/07/FindIt_Logo_Philly.jpg"
+              width="200"
+              height="200"
             ></img>
-            <div className="flex gap-x-4 text-sm font-semibold text-body">
+            <div className="flex padding-4 gap-x-10 text-lg font-semibold text-body">
               {linkDoms}
             </div>
           </div>
           <div className="space-x-5"></div>
           <div className="flex gap-x-4">
             <div className=" h-12 pt-4 ">
-              <Cta
-                buttonText="Order Online"
-                url="#"
-                style="text-white bg-orange shadow-xl"
-              ></Cta>
             </div>
           </div>
         </nav>

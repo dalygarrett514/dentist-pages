@@ -32,26 +32,28 @@ const Banner = (props: Banner) => {
   return (
     <>
       <div
-        className={`relative z-10 w-full bg-cover bg-center h-96 bg-[url(/src/assets/images/tacos-1.avif)] `}
+        className={`relative z-10 w-full bg-cover bg-center h-auto bg-[url('https://wallpaperaccess.com/full/1366120.jpg')]`}
       >
-        <div className="absolute left-0 right-0 flex flex-col items-center ">
-          <div className="w-96 my-8 rounded-xl bg-amber-500 border-8 shadow-xl border-amber-600 px-4 py-2 text-center">
+        <div className="relative left-0 right-0 flex flex-col items-center ">
+          <div className="w-96 my-8 rounded-xl bg-sky-500 border-8 shadow-xl border-sky-600 px-4 py-2 text-center">
             <div>
               <h1 className="text-white text-3xl font-semibold">{name}</h1>
               <p className="text-lg pt-2 text-white font-semibold">
                 {renderPrettyAddress(address)}
               </p>
             </div>
+              <img src = "https://cdn10.phillymag.com//wp-content/uploads/sites/4/2017/10/10502_wilk-revised.jpg" >
+              </img>              
             <div className="flex pt-4 justify-between">
               <Cta
-                buttonText="Order Pickup"
+                buttonText="Visit Website"
                 url="#"
-                style="text-orange bg-white shadow-xl"
+                style="text-sky bg-white shadow-xl"
               ></Cta>
               <Cta
-                buttonText="Order Delivery"
+                buttonText="Request Appointment"
                 url="#"
-                style="text-orange bg-white shadow-xl"
+                style="text-sky bg-white shadow-xl"
               ></Cta>
             </div>
           </div>

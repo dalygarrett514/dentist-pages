@@ -14,7 +14,7 @@ const Cta = (props: Cta) => {
     <a
       href={url}
       className={twMerge(
-        " py-4 px-6 text-base font-bold text-white rounded-lg",
+        " py-3 px-3 text-base font-bold text-white rounded-lg",
         style
       )}
       target="_blank"
