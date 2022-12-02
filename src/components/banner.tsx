@@ -39,7 +39,7 @@ const Banner = (props: Banner) => {
             <div>
               <h1 className="text-white text-3xl font-semibold">{name}</h1>
               <p className="text-lg pt-2 text-white font-semibold">
-                {renderPrettyAddress(address)}
+                {address}
               </p>
             </div>
               <img src = "https://cdn10.phillymag.com//wp-content/uploads/sites/4/2017/10/10502_wilk-revised.jpg" >
