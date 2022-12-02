@@ -27,6 +27,7 @@ import PageLayout from "../components/page-layout";
 import StaticMap from "../components/static-map";
 import Favicon from "../public/yext-favicon.ico";
 import "../index.css";
+import PhotoGallery from "../components/photo-gallery";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -157,11 +158,11 @@ const Location: Template<TemplateRenderProps> = ({
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
-              <div className="bg-sky-100 rounded-xl p-2">
+              <div className="bg-sky-50 rounded-xl p-2 border-4 shadow-xl border-sky-700">
                 <Details address={address} phone={mainPhone}></Details>
                 {services && <List list={services}></List>}
               </div>
-              <div className="bg-sky-100 rounded-xl p-2">
+              <div className="bg-sky-50 rounded-xl p-2 border-4 shadow-xl border-sky-700">
                 {hours && <Hours title={"Dentist's Hours"} hours={hours} />}
               </div>
               {geocodedCoordinate && (
@@ -170,7 +171,7 @@ const Location: Template<TemplateRenderProps> = ({
                   longitude={geocodedCoordinate.longitude}
                 ></StaticMap>
               )}
-              <div className="bg-sky-100 rounded-xl p-2">
+              <div className="bg-sky-50 rounded-xl p-2 border-4 shadow-xl border-sky-700">
                 <div className="text-xl font-semibold">{`About ${name}`}</div>
                 <p className="pt-4">{description}</p>
               </div>
