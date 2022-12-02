@@ -28,6 +28,22 @@ import StaticMap from "../components/static-map";
 import Favicon from "../public/yext-favicon.ico";
 import "../index.css";
 import PhotoGallery from "../components/photo-gallery";
+import {
+  SearchHeadlessProvider,
+  provideHeadless,
+  HeadlessConfig,
+  SandboxEndpoints,
+} from "@yext/search-headless-react";
+import {
+  SearchBar,
+  StandardCard,
+  VerticalResults,
+  SpellCheck,
+  ResultsCount,
+  Pagination,
+  } from "@yext/search-ui-react";
+
+
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -76,7 +92,10 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
     : `${document.locale}/${document.address.region}/${document.address.city}/${
         document.address.line1
       }-${document.id.toString()}`;
+      return "/search";
 };
+
+
 
 /**
  * Defines a list of paths which will redirect to the path created by getPath.
@@ -123,6 +142,18 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   };
 };
 
+const headlessConfig: HeadlessConfig = {
+  apiKey: "122ed3e710c9cc889a71ce0918071899",
+  experienceKey: "dentist-search",
+  locale: "en",
+  verticalKey: "locations",
+  endpoints: SandboxEndpoints,
+};
+
+const searcher = provideHeadless(headlessConfig);
+
+
+
 /**
  * This is the main template. It can have any name as long as it's the default export.
  * The props passed in here are the direct stream document defined by `config`.
@@ -151,9 +182,25 @@ const Location: Template<TemplateRenderProps> = ({
     c_headshot,
   } = document;
 
+
+  
   return (
     <>
       <PageLayout _site={_site}>
+        <SearchHeadlessProvider searcher={searcher}>
+          <div className="px-4 py-8">
+            <div className="mx-auto flex max-w-5xl flex-col">
+              <SearchBar />
+              <SpellCheck />
+              <ResultsCount />
+              <VerticalResults
+                CardComponent={StandardCard}
+                displayAllOnNoResults={false}
+              />
+            </div>
+            <Pagination />
+          </div>
+        </SearchHeadlessProvider>
         <Banner name={name} address={brands} c_headshot={c_headshot}/>
         <div className="centered-container">
           <div className="section">
@@ -172,8 +219,8 @@ const Location: Template<TemplateRenderProps> = ({
                 ></StaticMap>
               )}
               <div className="bg-sky-50 rounded-xl p-2 border-4 shadow-xl border-sky-700">
-                <div className="text-xl font-semibold">{`About ${name}`}</div>
-                <p className="pt-4">{description}</p>
+                <div className="text-3xl font-semibold">{`About ${name}`}</div>
+                <p className="pt-4 text-xl">{description}</p>
               </div>
             </div>
           </div>
