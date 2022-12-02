@@ -35,7 +35,8 @@ const Banner = (props: Banner) => {
   return (
     <>
       <div
-        className="relative z-10 w-full bg-cover bg-center h-auto" style={{backgroundImage: `url('${c_headshot.url}')`}}>
+        className={`relative z-10 w-full bg-cover bg-center h-auto bg-[url(https://wallpaperaccess.com/full/1366120.jpg)]`}
+      >
         <div className="relative left-0 right-0 flex flex-col items-center ">
           <div className="w-96 my-8 rounded-xl bg-sky-500 border-8 shadow-xl border-sky-600 px-4 py-2 text-center">
             <div>
@@ -43,9 +44,8 @@ const Banner = (props: Banner) => {
               <p className="text-lg pt-2 text-white font-semibold">
                 {address}
               </p>
-            </div>
-              <img src = "https://cdn10.phillymag.com//wp-content/uploads/sites/4/2017/10/10502_wilk-revised.jpg" >
-              </img>              
+              <img src={c_headshot.url}/>
+            </div>         
             <div className="flex pt-4 justify-between">
               <Cta
                 buttonText="Visit Website"
