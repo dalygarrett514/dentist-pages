@@ -44,6 +44,7 @@ export const config: TemplateConfig = {
       "address",
       "mainPhone",
       "description",
+      "c_headshot",
       "hours",
       "slug",
       "brands",
@@ -146,12 +147,13 @@ const Location: Template<TemplateRenderProps> = ({
     geocodedCoordinate,
     services,
     description,
+    c_headshot,
   } = document;
 
   return (
     <>
       <PageLayout _site={_site}>
-        <Banner name={name} address={brands} />
+        <Banner name={name} address={brands} c_headshot={c_headshot}/>
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
