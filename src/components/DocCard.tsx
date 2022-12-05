@@ -21,13 +21,13 @@ const DocCard: CardComponent<LOCATION> = ({
   };
 
   return (
-    <div className="mb-4 justify-between rounded-lg border bg-zinc-100 p-4 text-stone-900 shadow-sm">
+    <div className="mb-4 justify-between rounded-lg border-2 border-sky-700 bg-sky-100/50 p-4 text-stone-900 shadow-lg">
       <div className="flex grid-cols-2">
         <div>
-            <img className="w-24 rounded-lg" src={location.c_headshot?.url} />
+            <img className="max-h-28 rounded-xl" src={location.c_headshot?.url} />
         </div>
-        <div className="pl-6">
-            <a className="text-lg font-semibold text-sky-700" href={location.landingPageUrl}>{location.name}</a>
+        <div className="pl-6 pt-3">
+            <a className="text-xl font-semibold text-sky-700" href={location.landingPageUrl}>{location.name}</a>
             <div>
             {location.services}
             </div>

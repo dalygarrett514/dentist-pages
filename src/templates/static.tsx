@@ -36,6 +36,7 @@ import {
   NumericalFacets,
   DirectAnswer,
   Pagination,
+  AppliedFilters,
 } from "@yext/search-ui-react";
 import DocCard from "../components/DocCard";
 import { useEffect, useState } from "react";
@@ -177,12 +178,12 @@ const Static: Template<ExternalImageRenderData> = ({
                   <div className="mr-5 w-56 shrink-0">
                     <div className="flex flex-col rounded p-4">
                       <StandardFacets />
-                      <NumericalFacets />
+                      <AppliedFilters />
                     </div>
                   </div>
                   <VerticalResults
                     CardComponent={DocCard}
-                    displayAllOnNoResults={false}
+                    displayAllOnNoResults={true}
                   />
                 </div>
               </div>
