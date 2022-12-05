@@ -47,7 +47,7 @@ import DocCard from "../components/DocCard";
 export const config: TemplateConfig = {
   // The name of the feature. If not set the name of this file will be used (without extension).
   // Use this when you need to override the feature name.
-  name: "turtlehead-tacos",
+  name: "results",
 };
 
 /**
