@@ -33,6 +33,7 @@ import {
   UniversalResults,
   StandardFacets,
   NumericalFacets,
+  DirectAnswer,
   Pagination,
   } from "@yext/search-ui-react";
 import DocCard from "../components/DocCard";
@@ -155,13 +156,19 @@ const Static: Template<ExternalImageRenderData> = ({
     <>
       <PageLayout _site={_site}>
         <div className="centered-container">
-          <div className=" w-full bg-cover bg-center h-auto bg-[url(https://wallpaperaccess.com/full/1366120.jpg)] text-5xl font-bold text-white p-40 flex items-center justify-center flex-col gap-x-14 gap-y-10 ">
-            <h1>Welcome to Turtlehead Tacos</h1>
+          <div className=" w-full rounded-xl bg-center h-auto bg-[url(https://wallpaperaccess.com/full/1366120.jpg)] text-5xl font-bold text-white p-14 flex items-center justify-center flex-col gap-x-14 gap-y-10 ">
+            <img src="https://cdn10.phillymag.com//wp-content/uploads/sites/4/2019/04/FindIt_Logos_Category_2018_Philly-DEN.png" />
+            <div className="text-center bg-sky-800/40 rounded-xl font-semibold text-lg">
+              <p className="font-sans">
+              Looking for a new dentist? Philadelphia magazine partnered with dental researcher topDentists, LLC to create a definitive list of the best dentists in Philly, including experts in fields such as periodontics, endodontics, orthodontics and more. Find a dentist near you using our carefully curated list to discover a specialist who will make you smile. Plus, check out Philadelphia magazine’s 2022 Top Dentist Featured Profiles from our March issue now!
+              </p>
+            </div>
           </div>
           <SearchHeadlessProvider searcher={searcher}>
-            <div className="px-4 py-8">
+            <div className="px-4 py-4">
               <div className="mx-auto flex max-w-5xl flex-col">
                 <SearchBar />
+                <DirectAnswer />
                 <SpellCheck />
                 <ResultsCount />
                 <div className="flex">
@@ -180,11 +187,6 @@ const Static: Template<ExternalImageRenderData> = ({
               <Pagination />
             </div>
           </SearchHeadlessProvider>
-          <div className="space-y-5 text-center font-medium text-2xl">
-            <p className="p-10 font-sans">
-            Looking for a new dentist? Philadelphia magazine partnered with dental researcher topDentists, LLC to create a definitive list of the best dentists in Philly, including experts in fields such as periodontics, endodontics, orthodontics and more. Find a dentist near you using our carefully curated list to discover a specialist who will make you smile. Plus, check out Philadelphia magazine’s 2022 Top Dentist Featured Profiles from our March issue now!
-            </p>
-          </div>
         </div>
       </PageLayout>
     </>
