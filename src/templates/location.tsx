@@ -154,7 +154,7 @@ const handleSearch = (searchEventData: {
   query?: string;
 }) => {
   const { query } = searchEventData; // This holds the search term
-  if (query) window.open(`/results/?query=` + query, "_top"); // or you can try window.location.href='yourUrlToREdirect/?query='+query
+  if (query) window.open(`/?query=` + query, "_top"); // or you can try window.location.href='yourUrlToREdirect/?query='+query
 };
 /**
  * This is the main template. It can have any name as long as it's the default export.
@@ -188,7 +188,7 @@ const Location: Template<TemplateRenderProps> = ({
     <>
       <PageLayout _site={_site}>
         <SearchHeadlessProvider searcher={searcher}>
-          <div className="px-4 py-2">
+          <div className="px-4 pt-4">
             <div className="mx-auto flex max-w-5xl flex-col">
               <SearchBar onSearch={handleSearch} />
               <SpellCheck />
