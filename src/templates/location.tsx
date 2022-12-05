@@ -190,7 +190,7 @@ const Location: Template<TemplateRenderProps> = ({
     <>
       <PageLayout _site={_site}>
         <SearchHeadlessProvider searcher={searcher}>
-          <div className="px-4 py-8">
+          <div className="px-4 py-2">
             <div className="mx-auto flex max-w-5xl flex-col">
               <SearchBar />
               <SpellCheck />
