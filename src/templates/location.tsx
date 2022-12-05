@@ -41,11 +41,8 @@ import {
   SpellCheck,
   ResultsCount,
   Pagination,
-  } from "@yext/search-ui-react";
+} from "@yext/search-ui-react";
 import DocCard from "../components/DocCard";
-
-
-
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -94,10 +91,8 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
     : `${document.locale}/${document.address.region}/${document.address.city}/${
         document.address.line1
       }-${document.id.toString()}`;
-      return "/search";
+  return "/search";
 };
-
-
 
 /**
  * Defines a list of paths which will redirect to the path created by getPath.
@@ -135,11 +130,11 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
       {
         type: "link",
         attributes: {
-          rel: 'icon',
-          type: 'image/x-icon',
-          href: Favicon
+          rel: "icon",
+          type: "image/x-icon",
+          href: Favicon,
         },
-      }
+      },
     ],
   };
 };
@@ -154,8 +149,13 @@ const headlessConfig: HeadlessConfig = {
 
 const searcher = provideHeadless(headlessConfig);
 
-
-
+const handleSearch = (searchEventData: {
+  verticalKey?: string;
+  query?: string;
+}) => {
+  const { query } = searchEventData; // This holds the search term
+  if (query) window.open(`/results/?query=` + query, "_top"); // or you can try window.location.href='yourUrlToREdirect/?query='+query
+};
 /**
  * This is the main template. It can have any name as long as it's the default export.
  * The props passed in here are the direct stream document defined by `config`.
@@ -184,15 +184,13 @@ const Location: Template<TemplateRenderProps> = ({
     c_headshot,
   } = document;
 
-
-  
   return (
     <>
       <PageLayout _site={_site}>
         <SearchHeadlessProvider searcher={searcher}>
           <div className="px-4 py-2">
             <div className="mx-auto flex max-w-5xl flex-col">
-              <SearchBar />
+              <SearchBar onSearch={handleSearch} />
               <SpellCheck />
               <ResultsCount />
               <VerticalResults
@@ -203,7 +201,7 @@ const Location: Template<TemplateRenderProps> = ({
             <Pagination />
           </div>
         </SearchHeadlessProvider>
-        <Banner name={name} address={brands} c_headshot={c_headshot}/>
+        <Banner name={name} address={brands} c_headshot={c_headshot} />
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">

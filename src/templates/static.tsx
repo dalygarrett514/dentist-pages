@@ -23,6 +23,7 @@ import {
   provideHeadless,
   HeadlessConfig,
   SandboxEndpoints,
+  useSearchActions,
 } from "@yext/search-headless-react";
 import {
   SearchBar,
@@ -35,11 +36,10 @@ import {
   NumericalFacets,
   DirectAnswer,
   Pagination,
-  } from "@yext/search-ui-react";
+} from "@yext/search-ui-react";
 import DocCard from "../components/DocCard";
-
-
-
+import { useEffect, useState } from "react";
+import SearchBarHead from "../components/SearchBarHead";
 
 /**
  * Not required depending on your use case.
@@ -90,16 +90,13 @@ type ExternalImageRenderData = TemplateRenderProps & {
   externalImage: ExternalImage;
 };
 
-
-
-
 /**
  * This allows the user to define a function which will take in their template
  * data and produce a HeadConfig object. When the site is generated, the HeadConfig
  * will be used to generate the inner contents of the HTML document's <head> tag.
  * This can include the title, meta tags, script tags, etc.
  */
- export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
@@ -119,15 +116,14 @@ type ExternalImageRenderData = TemplateRenderProps & {
       {
         type: "link",
         attributes: {
-          rel: 'icon',
-          type: 'image/x-icon',
-          href: Favicon
+          rel: "icon",
+          type: "image/x-icon",
+          href: Favicon,
         },
-      }
+      },
     ],
   };
 };
-
 
 const headlessConfig: HeadlessConfig = {
   apiKey: "122ed3e710c9cc889a71ce0918071899",
@@ -138,7 +134,6 @@ const headlessConfig: HeadlessConfig = {
 };
 
 const searcher = provideHeadless(headlessConfig);
-
 
 /**
  * This is the main template. It can have any name as long as it's the default export.
@@ -160,14 +155,21 @@ const Static: Template<ExternalImageRenderData> = ({
             <img src="https://cdn10.phillymag.com//wp-content/uploads/sites/4/2019/04/FindIt_Logos_Category_2018_Philly-DEN.png" />
             <div className="text-center bg-sky-800/40 rounded-xl font-semibold text-lg">
               <p className="font-sans">
-              Looking for a new dentist? Philadelphia magazine partnered with dental researcher topDentists, LLC to create a definitive list of the best dentists in Philly, including experts in fields such as periodontics, endodontics, orthodontics and more. Find a dentist near you using our carefully curated list to discover a specialist who will make you smile. Plus, check out Philadelphia magazine’s 2022 Top Dentist Featured Profiles from our March issue now!
+                Looking for a new dentist? Philadelphia magazine partnered with
+                dental researcher topDentists, LLC to create a definitive list
+                of the best dentists in Philly, including experts in fields such
+                as periodontics, endodontics, orthodontics and more. Find a
+                dentist near you using our carefully curated list to discover a
+                specialist who will make you smile. Plus, check out Philadelphia
+                magazine’s 2022 Top Dentist Featured Profiles from our March
+                issue now!
               </p>
             </div>
           </div>
           <SearchHeadlessProvider searcher={searcher}>
             <div className="px-4 py-4">
               <div className="mx-auto flex max-w-5xl flex-col">
-                <SearchBar />
+                <SearchBarHead />
                 <DirectAnswer />
                 <SpellCheck />
                 <ResultsCount />
@@ -178,11 +180,11 @@ const Static: Template<ExternalImageRenderData> = ({
                       <NumericalFacets />
                     </div>
                   </div>
-                <VerticalResults
-                  CardComponent={DocCard}
-                  displayAllOnNoResults={false}
-                />
-              </div>
+                  <VerticalResults
+                    CardComponent={DocCard}
+                    displayAllOnNoResults={false}
+                  />
+                </div>
               </div>
               <Pagination />
             </div>
