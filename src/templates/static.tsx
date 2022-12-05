@@ -18,6 +18,24 @@ import PageLayout from "../components/page-layout";
 import Card from "../components/card";
 import { ExternalImage } from "../types/ExternalImage";
 import Favicon from "../public/yext-favicon.ico";
+import {
+  SearchHeadlessProvider,
+  provideHeadless,
+  HeadlessConfig,
+  SandboxEndpoints,
+} from "@yext/search-headless-react";
+import {
+  SearchBar,
+  StandardCard,
+  VerticalResults,
+  SpellCheck,
+  ResultsCount,
+  Pagination,
+  } from "@yext/search-ui-react";
+import DocCard from "../components/DocCard";
+
+
+
 
 /**
  * Not required depending on your use case.
@@ -69,6 +87,8 @@ type ExternalImageRenderData = TemplateRenderProps & {
 };
 
 
+
+
 /**
  * This allows the user to define a function which will take in their template
  * data and produce a HeadConfig object. When the site is generated, the HeadConfig
@@ -105,6 +125,16 @@ type ExternalImageRenderData = TemplateRenderProps & {
 };
 
 
+const headlessConfig: HeadlessConfig = {
+  apiKey: "122ed3e710c9cc889a71ce0918071899",
+  experienceKey: "dentist-search",
+  locale: "en",
+  endpoints: SandboxEndpoints,
+};
+
+const searcher = provideHeadless(headlessConfig);
+
+
 /**
  * This is the main template. It can have any name as long as it's the default export.
  * The props passed in here are the direct result from `getStaticProps`.
@@ -115,22 +145,33 @@ const Static: Template<ExternalImageRenderData> = ({
   document,
   externalImage,
 }) => {
-  const { _site, ANSWERS, TemplateBundle } = document;
+  const { _site } = document;
 
   return (
     <>
-      
       <PageLayout _site={_site}>
         <div className="centered-container">
           <div className=" w-full bg-cover bg-center h-auto bg-[url(https://wallpaperaccess.com/full/1366120.jpg)] text-5xl font-bold text-white p-40 flex items-center justify-center flex-col gap-x-14 gap-y-10 ">
             <h1>Welcome to Turtlehead Tacos</h1>
           </div>
+          <SearchHeadlessProvider searcher={searcher}>
+            <div className="px-4 py-8">
+              <div className="mx-auto flex max-w-5xl flex-col">
+                <SearchBar />
+                <SpellCheck />
+                <ResultsCount />
+                <VerticalResults
+                  CardComponent={DocCard}
+                  displayAllOnNoResults={false}
+                />
+              </div>
+              <Pagination />
+            </div>
+          </SearchHeadlessProvider>
           <div className="space-y-5 text-center font-medium text-2xl">
             <p className="p-10 font-sans">
             Looking for a new dentist? Philadelphia magazine partnered with dental researcher topDentists, LLC to create a definitive list of the best dentists in Philly, including experts in fields such as periodontics, endodontics, orthodontics and more. Find a dentist near you using our carefully curated list to discover a specialist who will make you smile. Plus, check out Philadelphia magazine’s 2022 Top Dentist Featured Profiles from our March issue now!
             </p>
-            <div id="answers-container"></div>
-            <script src="https://dentists.finditphilly.com.sbx.pagescdn.com/iframe.js"></script>
           </div>
         </div>
       </PageLayout>

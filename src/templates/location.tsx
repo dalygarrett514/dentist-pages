@@ -42,6 +42,8 @@ import {
   ResultsCount,
   Pagination,
   } from "@yext/search-ui-react";
+import DocCard from "../components/DocCard";
+
 
 
 
@@ -194,7 +196,7 @@ const Location: Template<TemplateRenderProps> = ({
               <SpellCheck />
               <ResultsCount />
               <VerticalResults
-                CardComponent={StandardCard}
+                CardComponent={DocCard}
                 displayAllOnNoResults={false}
               />
             </div>
