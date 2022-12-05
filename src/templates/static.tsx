@@ -30,6 +30,9 @@ import {
   VerticalResults,
   SpellCheck,
   ResultsCount,
+  UniversalResults,
+  StandardFacets,
+  NumericalFacets,
   Pagination,
   } from "@yext/search-ui-react";
 import DocCard from "../components/DocCard";
@@ -129,6 +132,7 @@ const headlessConfig: HeadlessConfig = {
   apiKey: "122ed3e710c9cc889a71ce0918071899",
   experienceKey: "dentist-search",
   locale: "en",
+  verticalKey: "locations",
   endpoints: SandboxEndpoints,
 };
 
@@ -160,6 +164,14 @@ const Static: Template<ExternalImageRenderData> = ({
                 <SearchBar />
                 <SpellCheck />
                 <ResultsCount />
+                <div className="flex">
+                  <div className="mr-5 w-56 shrink-0">
+                    <div className="flex flex-col rounded border bg-zinc-100 p-4 shadow-sm">
+                      <StandardFacets />
+                      <NumericalFacets />
+                    </div>
+                  </div>
+                </div>
                 <VerticalResults
                   CardComponent={DocCard}
                   displayAllOnNoResults={false}
