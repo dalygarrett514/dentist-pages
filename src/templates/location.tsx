@@ -62,6 +62,8 @@ export const config: TemplateConfig = {
       "description",
       "c_headshot",
       "hours",
+      "c_bannerImage",
+      "c_primaryColor",
       "slug",
       "brands",
       "geocodedCoordinate",
@@ -175,10 +177,12 @@ const Location: Template<TemplateRenderProps> = ({
     name,
     address,
     openTime,
+    c_primaryColor,
     hours,
     brands,
     mainPhone,
     geocodedCoordinate,
+    c_bannerImage,
     services,
     description,
     c_headshot,
@@ -201,7 +205,7 @@ const Location: Template<TemplateRenderProps> = ({
             <Pagination />
           </div>
         </SearchHeadlessProvider>
-        <Banner name={name} address={brands} c_headshot={c_headshot} />
+        <Banner name={name} address={brands} c_headshot={c_headshot} c_bannerImage={c_bannerImage}/>
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
