@@ -12,6 +12,7 @@ export type Address = {
 type Banner = {
   name?: string;
   address?: Address;
+  c_bannerImage?: any;
   c_headshot?: any;
   style?: React.CSSProperties;
   children?: React.ReactNode;
@@ -30,13 +31,13 @@ const renderPrettyAddress = (address?: Address) => {
 };
 
 const Banner = (props: Banner) => {
-  const { name, address, c_headshot } = props;
+  const { name, address, c_headshot, c_bannerImage } = props;
 
   return (
     <>
       <div
         className={`relative z-10 w-full bg-cover bg-center h-auto bg-[url(https://wallpaperaccess.com/full/1366120.jpg)]`}
-      >
+        style={{backgroundImage: `url('${c_bannerImage.url}')`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
         <div className="relative left-0 right-0 flex flex-col items-center ">
           <div className="w-96 my-8 rounded-xl bg-sky-700 border-4 shadow-xl border-sky-100 px-4 py-2 text-center">
             <div>
