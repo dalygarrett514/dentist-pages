@@ -183,6 +183,7 @@ const Location: Template<TemplateRenderProps> = ({
     mainPhone,
     geocodedCoordinate,
     c_bannerImage,
+    backgroundcolor,
     services,
     description,
     c_headshot,
@@ -205,15 +206,15 @@ const Location: Template<TemplateRenderProps> = ({
             <Pagination />
           </div>
         </SearchHeadlessProvider>
-        <Banner name={name} address={brands} c_headshot={c_headshot} c_bannerImage={c_bannerImage}/>
+        <Banner name={name} address={brands} c_headshot={c_headshot} c_bannerImage={c_bannerImage} c_primaryColor={c_primaryColor}/>
         <div className="centered-container">
           <div className="section">
             <div className="grid grid-cols-2 gap-x-10 gap-y-10">
-              <div className="bg-sky-50 rounded-xl p-2 border-4 shadow-xl border-sky-700">
+              <div className="bg-gray-50 rounded-xl p-2 border-4 shadow-xl border-gray-700">
                 <Details address={address} phone={mainPhone}></Details>
                 {services && <List list={services}></List>}
               </div>
-              <div className="bg-sky-50 rounded-xl p-2 border-4 shadow-xl border-sky-700">
+              <div className="bg-gray-50 rounded-xl p-2 border-4 shadow-xl border-gray-700">
                 {hours && <Hours title={"Dentist's Hours"} hours={hours} />}
               </div>
               {geocodedCoordinate && (
@@ -222,7 +223,7 @@ const Location: Template<TemplateRenderProps> = ({
                   longitude={geocodedCoordinate.longitude}
                 ></StaticMap>
               )}
-              <div className="bg-sky-50 rounded-xl p-2 border-4 shadow-xl border-sky-700">
+              <div className="bg-gray-50 rounded-xl p-2 border-4 shadow-xl border-gray-700">
                 <div className="text-3xl font-semibold">{`About ${name}`}</div>
                 <p className="pt-4 text-xl">{description}</p>
               </div>

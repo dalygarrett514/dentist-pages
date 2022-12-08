@@ -11,7 +11,7 @@ const StaticMap = (props: Coordinates) => {
   return (
     <>
       <img
-        className="w-full rounded-xl p-2 bg-sky-50 border-4 shadow-xl border-sky-700"
+        className="w-full rounded-xl p-2 bg-gray-50 border-4 shadow-xl border-gray-700"
         width="300"
         height="200"
         src={
