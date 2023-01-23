@@ -32,7 +32,7 @@ const Header = () => {
         <nav className="py-6 flex items-center justify-between">
           <div className="flex gap-x-10 items-center">
             <img
-              src="https://www.zarla.com/images/zarla-dr-smile-1x1-2400x2400-20210607-ctm3vpf6xdbmp9pdrkkd.png?crop=1:1,smart&width=250&dpr=2"
+              src="https://cdn10.phillymag.com/wp-content/uploads/sites/3/2018/07/FindIt_Logo_Philly.jpg"
               width="200"
               height="200"
             ></img>
